@@ -1,0 +1,23 @@
+<div class="loader" *ngIf = loader>
+    <div class="bar">
+    </div>
+    <h1>{{error}}</h1>
+</div>
+
+
+<div class="main">
+    <div class="sub-main">
+        <div class="img_div" *ngFor = "let data of products; index as i" id="main">
+            <a [href] = data.link target="_blank">
+                <img [src]=data.jetpack_featured_media_url alt="" >
+                <div class="info">
+                    <div class="info_det">
+                        <h3>{{ data.date | date : "MMMM d, y" }} </h3>
+                        <span [innerHtml] = "data.excerpt.rendered"></span>
+                    </div>
+                </div>
+            </a>
+            <div class="text" [innerHtml]="data.title.rendered"></div>
+        </div>
+    </div>    
+</div>
